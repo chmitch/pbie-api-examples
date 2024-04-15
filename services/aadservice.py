@@ -16,10 +16,9 @@ class AadService:
         keyvault = "cgmmlservicevault"
         client_id = SecretService.get_secret_byname(keyvault,"pbieclientid") 
         client_secret = SecretService.get_secret_byname(keyvault,"pbieclientsecret") 
-        authority_url = 'https://login.microsoftonline.com/organizations'
-        scope_base = ['https://analysis.windows.net/powerbi/api/.default']
-        tenant_id = '9f01a99c-6282-465a-94e6-fa7e97720b22'
-        keyVaultName = "cgmmlservicevault"
+        authority_url = SecretService.get_secret_byname(keyvault,"entraauthority")
+        scope_base = [SecretService.get_secret_byname(keyvault,"pbiscope")]
+        tenant_id = SecretService.get_secret_byname(keyvault,"entratenant")
         
 
         response = None
