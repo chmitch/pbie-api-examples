@@ -32,9 +32,9 @@ One element that might cause some confusion with the Power BI API is the terms W
 1. [List Reports In Workspace](./ListReportsInWorkspace.ipynb)
 
 ### Import
-1. [Import Model encoded] - This illustrates how to import a pbix file as a multi-part encoded byte stream.
-1. [Import Model temporary] - This illustrates how to import a pbix file via a temporary blob location.
-1. [Import Model advanced] - This illustrates the concept of examining the size of the file prior to import to determine the best method.
+1. [Import Model Encoded Body](./ImportModel-EncodedBody.ipynb) - This illustrates how to import a pbix file as a multi-part encoded byte stream.
+1. [Import Model Temporary Location](./ImportModel-TempLocation.ipynb) - This illustrates how to import a pbix file via a temporary blob location.
+1. [Import Model Advanced](./ImportModel-Advanced.ipynb) - This illustrates the concept of examining the size of the file prior to import to determine the best method.
 
 ## Other Resources
 
