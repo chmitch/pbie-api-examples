@@ -7,17 +7,22 @@ from services.secretservice import SecretService
 
 class AadService:
 
-    def get_access_token():
+    def get_access_token(scope=None):
         '''Generates and returns Access token
 
         Returns:
             string: Access token
         '''
         keyvault = "cgmmlservicevault"
+        
+        if scope is not None:
+            scope_base = scope
+        else:
+            scope_base = [SecretService.get_secret_byname(keyvault,"pbiscope")]
+
         client_id = SecretService.get_secret_byname(keyvault,"pbieclientid") 
         client_secret = SecretService.get_secret_byname(keyvault,"pbieclientsecret") 
         authority_url = SecretService.get_secret_byname(keyvault,"entraauthority")
-        scope_base = [SecretService.get_secret_byname(keyvault,"pbiscope")]
         tenant_id = SecretService.get_secret_byname(keyvault,"entratenant")
         
 
