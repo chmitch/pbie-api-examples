@@ -9,6 +9,7 @@ In the interest of making this readme easier to consume, we've broken it into su
 1. [Azure Setup](setup.md)
 1. [Environment Configuration](environment.md)
 1. [Module Overview](overview.md)
+1. [Advanced Scenarios](advanced.md)
 
 ## Other considerations and reminders
 * The resources these examples use are fairly inexpensive in Azure terms, but they do cost money.  If you're using these libraries for learning purposes, it is prudent to develop the habit of pausing resources when they are not in use.
