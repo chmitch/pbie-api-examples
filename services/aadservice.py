@@ -61,7 +61,6 @@ class AadService:
 
             response = None
             try:
-
                 credential = aid.ClientSecretCredential(tenant_id, client_id, client_secret)
                 
                 try:

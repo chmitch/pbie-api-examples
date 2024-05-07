@@ -8,11 +8,30 @@ from azure.keyvault.secrets import SecretClient
 
 class SecretService:
 
-    def get_secret_byname(keyVaultName,secret):
-        '''Generates and returns Access token
+    def store_secret_byname(keyVaultName, secretName, secretValue):
+        '''Stashes a provided secret in keyvault
 
         Returns:
-            string: Access token
+            Nothing
+        ''' 
+        response = None
+        KVUri = f"https://{keyVaultName}.vault.azure.net"
+        
+        try:
+            credential = DefaultAzureCredential()
+            client = SecretClient(vault_url=KVUri, credential=credential)
+            
+            response = client.set_secret(name=secretName, value=secretValue)
+            
+            return response
+        except Exception as ex:
+            raise Exception('Error storing secret to keyvault\n' + str(ex))
+
+    def get_secret_byname(keyVaultName,secret):
+        '''Retreives a key from keyvault
+
+        Returns:
+            string: retreived key
         '''      
         response = None
         KVUri = f"https://{keyVaultName}.vault.azure.net"
@@ -27,3 +46,7 @@ class SecretService:
             return secretvalue
         except Exception as ex:
             raise Exception('Error retrieving key from keyvalut token\n' + str(ex))
+
+
+
+            
