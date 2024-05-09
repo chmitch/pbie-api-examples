@@ -1,2 +1,2 @@
-*.pbix filter=lfs diff=lfs merge=lfs -text
-files/*.pbix filter=lfs diff=lfs merge=lfs -text
+NYCYellow.pbix filter=lfs diff=lfs merge=lfs -text
+files/NYCYellow.pbix filter=lfs diff=lfs merge=lfs -text
