@@ -69,4 +69,33 @@ class AadService:
                     raise Exception(response['error_description'])
 
             except Exception as ex:
-                raise Exception('Error retrieving Access token\n' + str(ex))            
+                raise Exception('Error retrieving Access token\n' + str(ex))
+
+    def get_tenant_credential(tenantName):
+            '''Generates and returns a credentail object
+            #https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.clientsecretcredential?view=azure-python
+
+            Returns:
+                string: Access token
+            '''
+            keyvault = "cgmmlservicevault"
+            tenantAppKey = tenantName+"Id"
+            tenantSecretKey = tenantName+"Secret"
+            
+            client_id = SecretService.get_secret_byname(keyvault,tenantAppKey) 
+            client_secret = SecretService.get_secret_byname(keyvault,tenantSecretKey) 
+            authority_url = SecretService.get_secret_byname(keyvault,"entraauthority")
+            tenant_id = SecretService.get_secret_byname(keyvault,"entratenant")
+            
+
+            response = None
+            try:
+                credential = aid.ClientSecretCredential(tenant_id, client_id, client_secret)
+                
+                try:
+                    return credential
+                except KeyError:
+                    raise Exception(response['error_description'])
+
+            except Exception as ex:
+                raise Exception('Error retrieving Access token\n' + str(ex))                            

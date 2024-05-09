@@ -7,4 +7,5 @@ However, there are several more sophisticated scenarios that imply a longer sequ
 
 ## Notebooks
 
-1. Deploy a model
+1. [Create Service Principal](./CreateServicePrincipal.ipynb) - Creating a service principal is a multi step process via graph api, and you need to consider capturing sescrets as well.  This illustrates that process.
+1. [Create New Tenant](./CreateNewTenant.ipynb) - In a Power BI Embedded multi-tenant solution creating a new tenant involves many pieces and many APIs (Power BI, Azure, Graph), this illustrates a coordinates process of creating all the necessary resources in order and granting the necessary security permissions.
