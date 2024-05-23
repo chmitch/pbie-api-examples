@@ -4,12 +4,24 @@ This repository is intended to demo various scenarios leveraging the Power BI RE
 1. Python makes dealing with JSON quite simple and since many of these APIs accept JSON as inputs it makes the code clean and easy to read.
 1. There was a distinct lack of Python examples at the time we authored this.
 
-## Core Resources
-In the interest of making this readme easier to consume, we've broken it into sub sections.
 1. [Azure Setup](setup.md)
 1. [Environment Configuration](environment.md)
-1. [Module Overview](overview.md)
 1. [Advanced Scenarios](advanced.md)
+
+## Notebooks
+In the interest of making this readme easier to consume, we've broken it into sub sections.
+1. [Capacity examples](/capacity/capacity.md) - Examples of creating and managing capacities.
+1. [Embed examples](/embed/embed.md) - Examples of different embed scenarios.
+1. [Security examples](/security/security.md) - Examples of both authenticating users and creating service principals.
+1. [Import examples](/import/import.md) - Examples of importing Power BI models in different scenarios.
+1. [Workspace examples](/workspace/workspace.md) - Examples of creting an managing workspaces.
+
+## Other
+This folder contains some files to illustrate the process of deploying models to Power BI via the API.
+1. [files](/files/files.md) - power bi model files used for examples.
+1. [services](/services/services.md) - a collection of python classes that are reused across multiple notebooks
+1. [models](/models/models.md) - a collection of class wrappers to support json serialization/deserialization for api calls.
+
 
 ## Other considerations and reminders
 * The resources these examples use are fairly inexpensive in Azure terms, but they do cost money.  If you're using these libraries for learning purposes, it is prudent to develop the habit of pausing resources when they are not in use.

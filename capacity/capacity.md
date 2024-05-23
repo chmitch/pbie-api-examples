@@ -29,14 +29,20 @@ One element that might cause some confusion with the Power BI API is the terms W
 
 ### Report
 
-1. [Capacity examples](/capacity/capacity.md) - Examples of creating and managing capacities.
-1. [Security examples](/security/security.md) - Examples of both authenticating users and creating service principals.
-1. [Import examples](/import/import.md) - Examples of importing Power BI models in different scenarios.
-1. [Workspace examples](/workspace/workspace.md) - Examples of creting an managing workspaces.
+1. [List Reports In Workspace](./ListReportsInWorkspace.ipynb)
+
+### Import
+1. [Import Model Encoded Body](./ImportModel-EncodedBody.ipynb) - This illustrates how to import a pbix file as a multi-part encoded byte stream.
+1. [Import Model Temporary Location](./ImportModel-TempLocation.ipynb) - This illustrates how to import a pbix file via a temporary blob location.
+1. [Import Model Advanced](./ImportModel-Advanced.ipynb) - This illustrates the concept of examining the size of the file prior to import to determine the best method.
 
 ## Other Resources
 
-
+### files
+This folder contains some files to illustrate the process of deploying models to Power BI via the API.
+1. [AdventureWorks.pbix](./files/AdventureWorks.pbix) - This is a fairly small file built upon the AdventureWorksDW database
+1. [NYCYellow.pbix](./files/NYCYellow.pbix) - This is large file, > 1GB designed to illustrate the alternate process for deploying large Power BI Files to a workspace.
+1. [template.pbix](./files/template.pbix) - This is a really basic pbix file, intended only to show the concepts of altering the connection properties of a model post publishing.
 
 ### services
 This folder contains python modules we use to encapsulate repetitive logic that is frequently used.  This is useful in many ways.  Primarily if we discover a bug we can fix it in one place, plus it keeps the notebooks more readable as they stay focused on the task at hand.
