@@ -11,4 +11,17 @@ class const:
     #used by notebooks in the capacity examples.
     capacityName = "cgmthisisatest"
     workspaceName = "cgmthisisatest"
-    administrators = ['chmitch@microsoftanalytics.info','6709b293-4789-477f-aee2-607b7139e63c']
+    #We use this user so that we can examine what we've created after the fact.
+    globalAdminUser = "chmitch@microsoftanalytics.info"
+    #We always add these two users, one is our service principal.  This allows us to manipulate the workspace after it's created
+    #the other is the app id of our service principal.  This ensures we can assign capacities to worksapces after they are created.
+    administrators = [globalAdminUser,'6709b293-4789-477f-aee2-607b7139e63c']
+
+    serverName = "cgmpbiesqlserver"
+    tenantRoot = "cgmpbietenant"
+    location = "westus2"
+    
+    keyVault = "cgmmlservicevault"
+
+    #Add another Admin to the database for convenience so you can connect to the database in Azure Data Studio or Query Editor.
+    secondaryAdmin = "chmitch@microsoftanalyitcs.info"
