@@ -4,9 +4,10 @@ This repository is intended to demo various scenarios leveraging the Power BI RE
 1. Python makes dealing with JSON quite simple and since many of these APIs accept JSON as inputs it makes the code clean and easy to read.
 1. There was a distinct lack of Python examples at the time we authored this.
 
-1. [Azure Setup](setup.md)
-1. [Environment Configuration](environment.md)
-1. [Advanced Scenarios](advanced.md)
+## General resources
+1. [Azure Setup](setup.md) - covers what infrastructure is required in azure
+1. [Environment Configuration](environment.md) - covers how to setup your development environment
+1. [Advanced Scenarios](advanced.md) - digs into complex scenarios that involve orchestration of multiple apis to complete
 
 ## Notebooks
 In the interest of making this readme easier to consume, we've broken it into sub sections.
@@ -15,6 +16,7 @@ In the interest of making this readme easier to consume, we've broken it into su
 1. [Security examples](/security/security.md) - Examples of both authenticating users and creating service principals.
 1. [Import examples](/import/import.md) - Examples of importing Power BI models in different scenarios.
 1. [Workspace examples](/workspace/workspace.md) - Examples of creting an managing workspaces.
+1. [Dataset examples](/dataset/dataset.md) - Examples of working with dataset settings.
 
 ## Other
 This folder contains some files to illustrate the process of deploying models to Power BI via the API.
