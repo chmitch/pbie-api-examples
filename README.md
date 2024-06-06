@@ -5,7 +5,7 @@ This repository is intended to demo various scenarios leveraging the Power BI RE
 1. There was a distinct lack of Python examples at the time we authored this.
 
 ## General resources
-1. [Azure Setup](setup.md) - covers what infrastructure is required in azure
+1. [Setup](setup.md) - covers what infrastructure is required in azure
 1. [Environment Configuration](environment.md) - covers how to setup your development environment
 1. [Advanced Scenarios](advanced.md) - digs into complex scenarios that involve orchestration of multiple apis to complete
 

@@ -5,6 +5,7 @@
 import msal
 from services.secretservice import SecretService
 import azure.identity as aid
+from services.env import const
 
 class AadService:
 
@@ -17,23 +18,23 @@ class AadService:
         keyvault = "cgmmlservicevault"
         
         if scope is not None:
-            scope_base = [scope]
+            scopeBase = [scope]
         else:
-            scope_base = [SecretService.get_secret_byname(keyvault,"pbiscope")]
+            #scope_base = [SecretService.get_secret_byname(keyvault,"pbiscope")]
+            scopeBase = [const.pbiScope]
 
-        client_id = SecretService.get_secret_byname(keyvault,"pbieclientid") 
-        client_secret = SecretService.get_secret_byname(keyvault,"pbieclientsecret") 
-        authority_url = SecretService.get_secret_byname(keyvault,"entraauthority")
-        tenant_id = SecretService.get_secret_byname(keyvault,"entratenant")
+        clientId = const.pbiClientId
+        authorityUrl = const.entraAuthority
+        tenantId = const.entraTenant
+        clientSecret = SecretService.get_secret_byname(keyvault,"pbieclientsecret") 
         
-
         response = None
         try:
-            authority = authority_url.replace('organizations', tenant_id)
-            clientapp = msal.ConfidentialClientApplication(client_id, client_credential=client_secret, authority=authority)
+            authority = authorityUrl.replace('organizations', tenantId)
+            clientapp = msal.ConfidentialClientApplication(clientId, client_credential=clientSecret, authority=authority)
             
             # Make a client call if Access token is not available in cache
-            response = clientapp.acquire_token_for_client(scopes=scope_base)
+            response = clientapp.acquire_token_for_client(scopes=scopeBase)
 
             try:
                 return response['access_token']
@@ -53,15 +54,18 @@ class AadService:
             '''
             keyvault = "cgmmlservicevault"
             
-            client_id = SecretService.get_secret_byname(keyvault,"pbieclientid") 
-            client_secret = SecretService.get_secret_byname(keyvault,"pbieclientsecret") 
-            authority_url = SecretService.get_secret_byname(keyvault,"entraauthority")
-            tenant_id = SecretService.get_secret_byname(keyvault,"entratenant")
+            #client_id = SecretService.get_secret_byname(keyvault,"pbieclientid") 
+            clientId = const.pbiClientId
+            clientSecret = SecretService.get_secret_byname(keyvault,"pbieclientsecret") 
+            #authority_url = SecretService.get_secret_byname(keyvault,"entraauthority")
+            authorityUrl = const.entraAuthority
+            #tenant_id = SecretService.get_secret_byname(keyvault,"entratenant")
+            tenantId = const.entraTenant
             
 
             response = None
             try:
-                credential = aid.ClientSecretCredential(tenant_id, client_id, client_secret)
+                credential = aid.ClientSecretCredential(tenantId, clientId, clientSecret)
                 
                 try:
                     return credential
@@ -82,15 +86,18 @@ class AadService:
             tenantAppKey = tenantName+"Id"
             tenantSecretKey = tenantName+"Secret"
             
-            client_id = SecretService.get_secret_byname(keyvault,tenantAppKey) 
-            client_secret = SecretService.get_secret_byname(keyvault,tenantSecretKey) 
-            authority_url = SecretService.get_secret_byname(keyvault,"entraauthority")
-            tenant_id = SecretService.get_secret_byname(keyvault,"entratenant")
+            #client_id = SecretService.get_secret_byname(keyvault,"pbieclientid") 
+            clientId = const.pbiClientId
+            clientSecret = SecretService.get_secret_byname(keyvault,"pbieclientsecret") 
+            #authority_url = SecretService.get_secret_byname(keyvault,"entraauthority")
+            authorityUrl = const.entraAuthority
+            #tenant_id = SecretService.get_secret_byname(keyvault,"entratenant")
+            tenantId = const.entraTenant
             
 
             response = None
             try:
-                credential = aid.ClientSecretCredential(tenant_id, client_id, client_secret)
+                credential = aid.ClientSecretCredential(tenantId, clientId, clientSecret)
                 
                 try:
                     return credential
