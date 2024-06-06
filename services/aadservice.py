@@ -15,7 +15,7 @@ class AadService:
         Returns:
             string: Access token
         '''
-        keyvault = "cgmmlservicevault"
+        keyvault = const.keyVault
         
         if scope is not None:
             scopeBase = [scope]
@@ -52,16 +52,12 @@ class AadService:
             Returns:
                 string: Access token
             '''
-            keyvault = "cgmmlservicevault"
+            keyvault = const.keyVault
             
-            #client_id = SecretService.get_secret_byname(keyvault,"pbieclientid") 
             clientId = const.pbiClientId
-            clientSecret = SecretService.get_secret_byname(keyvault,"pbieclientsecret") 
-            #authority_url = SecretService.get_secret_byname(keyvault,"entraauthority")
             authorityUrl = const.entraAuthority
-            #tenant_id = SecretService.get_secret_byname(keyvault,"entratenant")
             tenantId = const.entraTenant
-            
+            clientSecret = SecretService.get_secret_byname(keyvault,"pbieclientsecret") 
 
             response = None
             try:
@@ -82,17 +78,14 @@ class AadService:
             Returns:
                 string: Access token
             '''
-            keyvault = "cgmmlservicevault"
+            keyvault = const.keyVault
             tenantAppKey = tenantName+"Id"
             tenantSecretKey = tenantName+"Secret"
             
-            #client_id = SecretService.get_secret_byname(keyvault,"pbieclientid") 
-            clientId = const.pbiClientId
-            clientSecret = SecretService.get_secret_byname(keyvault,"pbieclientsecret") 
-            #authority_url = SecretService.get_secret_byname(keyvault,"entraauthority")
             authorityUrl = const.entraAuthority
-            #tenant_id = SecretService.get_secret_byname(keyvault,"entratenant")
             tenantId = const.entraTenant
+            clientId = SecretService.get_secret_byname(keyvault,tenantAppKey) 
+            clientSecret = SecretService.get_secret_byname(keyvault,tenantSecretKey)
             
 
             response = None
